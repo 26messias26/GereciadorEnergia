@@ -5,9 +5,8 @@ public class Equipamento {
     public Equipamento(){
         this.estado = new EstadoDesligado(this);
     }
-    public void desligar(){
-        System.out.println("[GE] Desligando equipamentos...");
-
+    public void setEstado(EstadoEquipamento estado){
+        this.estado = estado;
     }
 
     public EstadoEquipamento getEstado() {
