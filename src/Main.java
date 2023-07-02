@@ -5,6 +5,9 @@ public class Main {
         // LIGANDO O SISTEMA
 
         System.out.println("[GUE] Inicializando GUE...");
+
+
+
         System.out.println("[GUE] Verificando equipamentos...");
         System.out.println("[GUE] Equipamentos desligados.");
         System.out.println("[GUE] Tudo pronto.");

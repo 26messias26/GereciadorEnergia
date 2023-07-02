@@ -1,3 +1,4 @@
-public class Mediador {
+public interface Mediador {
 
+    
 }
