@@ -1,5 +1,7 @@
 package leitor;
 
+import Mediador.Mediador;
+
 import java.util.Scanner;
 
 public class LeitorRFID {

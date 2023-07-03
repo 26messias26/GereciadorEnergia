@@ -1,6 +1,9 @@
 package Mediador;
 
+import Model.Docente;
+
 import java.util.ArrayList;
+
 
 public class GerenciadorEquipamento implements Mediador {
 
