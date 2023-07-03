@@ -1,3 +1,8 @@
+package Mediador;
+
+import estados.EstadoEquipamento;
+import estados.EstadoDesligado;
+
 public class Equipamento {
 
     private EstadoEquipamento estado;

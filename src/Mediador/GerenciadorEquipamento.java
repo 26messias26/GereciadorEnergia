@@ -1,3 +1,5 @@
+package Mediador;
+
 import java.util.ArrayList;
 
 public class GerenciadorEquipamento implements Mediador {

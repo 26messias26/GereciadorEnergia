@@ -1,3 +1,7 @@
+package estados;
+
+import Mediador.Equipamento;
+
 public class EstadoDesligado extends EstadoEquipamento {
 
     public EstadoDesligado(Equipamento equipamento) {

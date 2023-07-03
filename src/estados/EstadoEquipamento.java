@@ -1,3 +1,8 @@
+package estados;
+
+
+import Mediador.Equipamento;
+
 public abstract class EstadoEquipamento {
     Equipamento equipamento;
 

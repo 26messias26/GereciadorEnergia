@@ -1,3 +1,5 @@
+package leitor;
+
 import java.util.Scanner;
 
 public class LeitorRFID {
