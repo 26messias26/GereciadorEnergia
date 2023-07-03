@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class GerenciadorEquipamento implements Mediador {
 
-    ArrayList docentes;
+    ArrayList<Docente> docentes;
 
     public GerenciadorEquipamento(){
         this.docentes = new ArrayList<Docente>();
@@ -21,5 +21,17 @@ public class GerenciadorEquipamento implements Mediador {
     @Override
     public void atualizarEquipamento() {
 
+    }
+    @Override
+    public String verificarDocente(String matricula) {
+        for (Docente docente : this.docentes){
+            if(docente.getMatricula() == matricula){
+                return docente.getNome();
+                // fazer uma chamada assincrona para ligar os equipamentos.
+            }else{
+                return "0";
+            }
+        }
+        return "0";
     }
 }
