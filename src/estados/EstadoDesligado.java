@@ -9,12 +9,13 @@ public class EstadoDesligado extends EstadoEquipamento {
     }
 
     @Override
-    public void desligar() {
-        System.out.println("O equipamento está desligado.");
+    public String desligar() {
+        return "[GE] Os equipamentos já se encontram desligados!";
     }
 
     @Override
-    public void ligar() {
+    public String ligar() {
         equipamento.setEstado(new EstadoLigado(equipamento));
+        return "[GE] Equipamentos ligados com sucesso!";
     }
 }

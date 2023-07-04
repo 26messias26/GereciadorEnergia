@@ -1,9 +1,10 @@
 package Mediador;
 
+import leitor.LeitorRFID;
+
 public interface Mediador {
 
-    public void inicializarSistema();
-    public void atualizarEquipamento();
+    public void inicializarSistema(Equipamento equipamento, LeitorRFID leitor);
 
-    String verificarDocente(String matricula);
+    String indentificarDocente(String matricula);
 }

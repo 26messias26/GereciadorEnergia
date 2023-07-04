@@ -14,6 +14,14 @@ public class Equipamento {
         this.estado = estado;
     }
 
+    public String ligar(){
+        return estado.ligar();
+    }
+
+    public String desligar(){
+        return estado.desligar();
+    }
+
     public EstadoEquipamento getEstado() {
         return estado;
     }

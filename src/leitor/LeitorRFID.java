@@ -6,24 +6,31 @@ import java.util.Scanner;
 
 public class LeitorRFID {
 
-    Mediador GerenciadorEquipamento;
+    Mediador gerenciadorEquipamento;
     Scanner leitor;
-    public LeitorRFID(){
+    public LeitorRFID( Mediador ge ){
+        this.gerenciadorEquipamento = ge;
         this.leitor = new Scanner(System.in);
 
     }
 
-    public void lerCracha(){
+    public boolean lerCracha(){
         System.out.println("[RFID] Aguardando leitura.\n");
         String matricula = this.leitor.next();
 
-        System.out.println("[RFID] Identificando aguarde...");
-        String docenteIdentificado = GerenciadorEquipamento.verificarDocente(matricula);
+        if(matricula.equals("0")){
+            return false;
+        }else {
+            System.out.println("[RFID] Identificando aguarde...");
+            String docenteIdentificado = gerenciadorEquipamento.indentificarDocente(matricula);
 
-        if (docenteIdentificado == "0"){
-            System.out.println("[RFID] Acesso negado!");
-        }else{
-            System.out.println("[RFID] <"+docenteIdentificado+"> Porta liberada.");
+            if (docenteIdentificado.equals("0")){
+                System.out.println("[RFID] Acesso negado!");
+            }else{
+                System.out.println("[RFID] <"+docenteIdentificado+"> Porta liberada.");
+            }
+            return true;
         }
+
     }
 }

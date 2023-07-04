@@ -10,8 +10,8 @@ public abstract class EstadoEquipamento {
         this.equipamento = equipamento;
     }
 
-    public abstract void ligar();
+    public abstract String ligar();
 
-    public abstract void desligar();
+    public abstract String desligar();
 
 }
