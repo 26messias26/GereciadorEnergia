@@ -14,7 +14,7 @@ public class LeitorRFID {
 
     }
 
-    public boolean lerCracha(){
+    public boolean lerCracha() throws InterruptedException{
         System.out.println("[RFID] Aguardando leitura.\n");
         String matricula = this.leitor.next();
 
@@ -24,10 +24,14 @@ public class LeitorRFID {
             System.out.println("[RFID] Identificando aguarde...");
             String docenteIdentificado = gerenciadorEquipamento.indentificarDocente(matricula);
 
+            Thread.sleep(1000);
+
             if (docenteIdentificado.equals("0")){
                 System.out.println("[RFID] Acesso negado!");
+                Thread.sleep(1000);
             }else{
                 System.out.println("[RFID] <"+docenteIdentificado+"> Porta liberada.");
+                Thread.sleep(1000);
             }
             return true;
         }

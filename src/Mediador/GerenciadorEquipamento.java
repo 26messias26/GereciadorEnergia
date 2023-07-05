@@ -8,6 +8,8 @@ import leitor.LeitorRFID;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class GerenciadorEquipamento implements Mediador {
@@ -21,15 +23,21 @@ public class GerenciadorEquipamento implements Mediador {
     public GerenciadorEquipamento(){
         this.docentes = new ArrayList<Docente>();
         this.docentesPresentes = new ArrayList<Docente>();
+
+//      TIMER
+        Timer timer = new Timer();
     }
 
     @Override
-    public void inicializarSistema(Equipamento equipamento, LeitorRFID leitor) {
+    public void inicializarSistema(Equipamento equipamento, LeitorRFID leitor) throws InterruptedException {
 
         System.out.println("[GE] Inicializando sistema...");
+        Thread.sleep(1500);
         System.out.println("[GE] Verificando equipamentos...");
         this.equipamento = equipamento;
+        Thread.sleep(1500);
         System.out.println("[GE] Equipamentos desligados.");
+
         this.leitor = leitor;
 
         System.out.println("[GE] Indentificando docentes...");
@@ -40,11 +48,12 @@ public class GerenciadorEquipamento implements Mediador {
         docentes.add(new Docente("Endeberg","4"));
         docentes.add(new Docente("Luiza","5"));
         docentes.add(new Docente("Murilo Braz","6"));
+        Thread.sleep(1500);
         System.out.println("[GE] Tudo pronto.");
     }
 
     @Override
-    public String indentificarDocente(String matricula) {
+    public String indentificarDocente(String matricula) throws InterruptedException {
         for (Docente docente : this.docentes){
 
             if(docente.getMatricula().equals(matricula)){
@@ -54,9 +63,10 @@ public class GerenciadorEquipamento implements Mediador {
                 }else{
                     this.docentesPresentes.add(docente);
                 }
+                Thread.sleep(1000);
+                System.out.println("[GE] Docente indentificado: <"+docente.getNome()+">");
 
-                System.out.println("Docente indentificado: <"+docente.getNome()+">");
-
+                Thread.sleep(600);
                 this.verificarDocentePresente();
 
                 return docente.getNome();
@@ -67,9 +77,10 @@ public class GerenciadorEquipamento implements Mediador {
         return "0";
     }
 
-    private void verificarDocentePresente() {
+    private void verificarDocentePresente() throws InterruptedException {
         if(this.docentesPresentes.size() == 0 ){
            String notificacao = this.equipamento.desligar();
+            Thread.sleep(1000);
             System.out.println(notificacao);
         }
 

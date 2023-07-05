@@ -4,7 +4,8 @@ import leitor.LeitorRFID;
 
 public interface Mediador {
 
-    public void inicializarSistema(Equipamento equipamento, LeitorRFID leitor);
+    public void inicializarSistema(Equipamento equipamento, LeitorRFID leitor) throws InterruptedException;
 
-    String indentificarDocente(String matricula);
+    public String indentificarDocente(String matricula) throws InterruptedException;
+
 }
